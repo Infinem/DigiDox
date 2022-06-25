@@ -62,6 +62,25 @@
         padding: 40px 20px
         margin-bottom: 14px
         min-height: 315px
+        position: relative
+        transition: box-shadow 1s ease
+        &:hover
+            transition: box-shadow 1s ease
+        &:hover::before
+            content: ''
+            position: absolute
+            left: 0
+            top: 0
+            width: 100%
+            height: 100%
+            box-shadow: 0 0 15px 3px #01E6A8,0 0 4px 2px #01E6A8
+            transition: box-shadow 1s ease
+            z-index: -1
+            animation-name: gradient-shadow
+            animation-timing-function: ease
+            animation-duration: 1s
+            animation-iteration-count: initial
+            border-radius: 5px
         img
             max-width: 80px
             margin-bottom: 14px
@@ -147,9 +166,17 @@
     transition: .25s ease-in-out
     transition-property: background-position,opacity,color,box-shadow
     border-radius: 10px
-    // font-weight: 600
+    font-weight: 600
     box-shadow: 0 10px 20px rgb(255 229 126 / 15%)
     &:hover
         transition: color .25s ease-in-out
         -webkit-tap-highlight-color: transparent
         box-shadow: 0 10px 20px rgb(255 229 126 / 30%)
+
+@keyframes gradient-shadow
+    0%
+        box-shadow: 0 0 15px 1px #01E6A8,0 0 1px 1px #01E6A8
+
+  
+    100%
+        box-shadow: 0 0 15px 3px #01E6A8,0 0 4px 2px #01E6A8
