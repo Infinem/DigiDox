@@ -1,23 +1,29 @@
 // body
 // 	display: none
+.navbar-brand
+    width: 150px
+    height: 90px
+    svg
+        max-width: 100%
+        max-height: 100%
+.navbar
+    color: #fff
+    background-color: #0d0246
+    .navbar-nav
+        color: #fff
+        .nav-link
+            color: #fff
+            &:hover, &:focus
+                color: #ffe57e
+        .active
+            color: #ffe57e !important
+
 .home
     background-color: #0d0246
     min-height: 100vh
     color: #fff
-    .navbar-brand
-        width: 150px
-        height: 90px
-        svg
-            max-width: 100%
-            max-height: 100%
-    .navbar
-        color: #fff
-        .navbar-nav
-            color: #fff
-            .nav-link
-                color: #fff
     .content-section
-        margin-top: 5%
+        padding-top: 5%
         text-align: center
         margin-bottom: 5%
         h1
@@ -143,3 +149,11 @@
         transition: color .25s ease-in-out
         -webkit-tap-highlight-color: transparent
         box-shadow: 0 10px 20px rgb(255 229 126 / 30%)
+
+#section1
+    height: 1200px
+    background-color: pink
+
+#section2
+    height: 1200px
+    background-color: yellow
