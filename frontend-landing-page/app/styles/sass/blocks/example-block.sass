@@ -20,7 +20,7 @@
 
 .home
     background-color: #0d0246
-    min-height: 100vh
+    // min-height: 100vh
     color: #fff
     .content-section
         padding-top: 5%
@@ -31,18 +31,22 @@
         p
             color: #adbdcc
             font-size: 18px
+            margin-bottom: 32px
     .content-image
-        background-image: url(../images/dist/bg.png)
-        background-position: center center
-        background-repeat: no-repeat
-        background-size: cover
-        min-height: 40vh
-        padding-bottom: 5%
+        // background-image: url(../images/dist/bg.png)
+        // background-position: center center
+        // background-repeat: no-repeat
+        // background-size: cover
+        // min-height: 40vh
         img
             max-width: 100%
 .content-info
     margin-top: 10%
     margin-bottom: 10%
+    background-image: url(../images/dist/bg.png)
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: cover
     .title
         text-align: center
         font-size: 32px
@@ -131,10 +135,10 @@
     padding: 20px
 .button-yellow
     border: 1px solid transparent
-    padding: 13px 32px
-    font-size: 15px
+    padding: 13px 50px
+    font-size: 18px
     line-height: 20px
-    background: linear-gradient(128deg,#ffe57e 0%,#feb93fff 50%,#ffe57e 100%)
+    background: linear-gradient(128deg,#ffe57e 0%,#d79115ff 50%,#ffe57e 100%)
     background-size: 200% 100%
     background-position: 0 0
     color: #0d0246
@@ -143,17 +147,9 @@
     transition: .25s ease-in-out
     transition-property: background-position,opacity,color,box-shadow
     border-radius: 10px
-    font-weight: 700
+    // font-weight: 600
     box-shadow: 0 10px 20px rgb(255 229 126 / 15%)
     &:hover
         transition: color .25s ease-in-out
         -webkit-tap-highlight-color: transparent
         box-shadow: 0 10px 20px rgb(255 229 126 / 30%)
-
-#section1
-    height: 1200px
-    background-color: pink
-
-#section2
-    height: 1200px
-    background-color: yellow

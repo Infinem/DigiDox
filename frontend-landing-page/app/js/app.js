@@ -3,30 +3,21 @@
 
 
 document.addEventListener('DOMContentLoaded', () => {
-	var dataReload = document.querySelectorAll("[data-reload]")
-	console.log(dataReload)
-	var lang = {
-		uz: {
-			greeting: "Salom"
-		},
-		ru: {
-			greeting: "Привет"
-		}
-	}
+	// const langs = document.querySelectorAll(".lang");
+	// const langsLinks = document.querySelectorAll(".lang-link");
 
-	if (window.location.hash) {
-		if (window.location.hash === "#ru") {
-			hi.textContent = lang.ru.greeting
-		}
-	}
+	// if (window.location.hash && window.location.hash === "#uz") {
+	// 	langs.forEach(elem => {
+	// 		elem.textContent = elem.dataset.uz;
+	// 	});
+	// }
 
-	for (let i = 0; i <= dataReload.length; i++) {
-		console.log("inside")
-		console.log(dataReload[i])
-		dataReload.onclick = function () {
-			location.reload(true);
-		}
-	}
+	// langsLinks.forEach(elem => {
+	// 	elem.onclick = function () {
+	// 		console.log(elem)
+	// 		window.location.reload(true);
+	// 	};
+	// });
 
 	const links = document.querySelectorAll(".page-header ul a");
 
@@ -37,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	function clickHandler(e) {
 		e.preventDefault();
 		const href = this.getAttribute("href");
-		const offsetTop = document.querySelector(href).offsetTop -120;
+		const offsetTop = document.querySelector(href).offsetTop - 120;
 
 		scroll({
 			top: offsetTop,
@@ -45,26 +36,5 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
-	// $("a").on('click', function (event) {
-
-	// 	// Make sure this.hash has a value before overriding default behavior
-	// 	if (this.hash !== "") {
-	// 		// Prevent default anchor click behavior
-	// 		event.preventDefault();
-
-	// 		// Store hash
-	// 		var hash = this.hash;
-
-	// 		// Using jQuery's animate() method to add smooth page scroll
-	// 		// The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-	// 		$('html, body').animate({
-	// 			scrollTop: $(hash).offset().top
-	// 		}, 800, function () {
-
-	// 			// Add hash (#) to URL when done scrolling (default click behavior)
-	// 			window.location.hash = hash;
-	// 		});
-	// 	} // End if
-	// });
 
 })
