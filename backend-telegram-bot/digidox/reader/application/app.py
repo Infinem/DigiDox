@@ -6,9 +6,9 @@ import cv2
 import numpy as np
 from PIL import Image
 
-from detection.yolov5_detector import Detector
-from rotation.deskew import determine_skew, rotate
-from rotation.rotation_skorch import PassportRotation
+from reader.application.detection.yolov5_detector import Detector
+from reader.application.rotation.deskew import determine_skew, rotate
+from reader.application.rotation.rotation_skorch import PassportRotation
 
 import Levenshtein
 from scipy.spatial.distance import cdist
@@ -18,9 +18,9 @@ from mrz.checker.td3 import TD3CodeChecker
 
 
 detector = Detector()
-detector.load("./detection/weights/passport_yolov5s.pt")
+detector.load("./reader/application/detection/weights/passport_yolov5s.pt")
 rotator = PassportRotation()
-ocr = PaddleOCR(lang="en")
+ocr = PaddleOCR(lang="en", use_gpu=False)
 
 
 def detect_passport(path):
@@ -127,7 +127,7 @@ def process_passport(image, ocr_result, mrz_items):
         if word.replace(" ", "").isdigit():
             dates += [word.replace(" ", "")]
         word_center = bbox_centers(coords)
-        with open("./utils/fields_dict.txt", "r") as fp:
+        with open("./reader/application/utils/fields_dict.txt", "r") as fp:
             for field in fp.readlines():
                 field = field.rstrip("\n")
                 if Levenshtein.distance(field, word) <= 3 and field not in keys_dict.keys():

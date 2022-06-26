@@ -10,7 +10,7 @@ from skorch import NeuralNetClassifier
 import albumentations
 from albumentations import pytorch
 
-from rotation.resnet18 import ResNet18
+from reader.application.rotation.resnet18 import ResNet18
 
 
 class PassportRotation():
@@ -20,7 +20,7 @@ class PassportRotation():
             albumentations.Resize(416, 416),
             albumentations.Normalize([0.485, 0.456, 0.406],
                                     [0.229, 0.224, 0.225]),
-            pytorch.ToTensor()
+            pytorch.ToTensorV2()
             ])
 
         self.resnet = NeuralNetClassifier(
@@ -29,7 +29,7 @@ class PassportRotation():
             device="cpu"
             )
         self.resnet.initialize()
-        self.resnet.load_params(f_params="./rotation/weights/rotation_resnet18.pkl")
+        self.resnet.load_params(f_params="./reader/application/rotation/weights/rotation_resnet18.pkl")
 
     def predict(self, image):
         start_time = time.perf_counter()
