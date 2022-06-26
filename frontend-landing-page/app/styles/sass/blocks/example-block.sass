@@ -1,23 +1,29 @@
 // body
 // 	display: none
+.navbar-brand
+    width: 150px
+    height: 90px
+    svg
+        max-width: 100%
+        max-height: 100%
+.navbar
+    color: #fff
+    background-color: #0d0246
+    .navbar-nav
+        color: #fff
+        .nav-link
+            color: #fff
+            &:hover, &:focus
+                color: #ffe57e
+        .active
+            color: #ffe57e !important
+
 .home
     background-color: #0d0246
-    min-height: 100vh
+    // min-height: 100vh
     color: #fff
-    .navbar-brand
-        width: 150px
-        height: 90px
-        svg
-            max-width: 100%
-            max-height: 100%
-    .navbar
-        color: #fff
-        .navbar-nav
-            color: #fff
-            .nav-link
-                color: #fff
     .content-section
-        margin-top: 5%
+        padding-top: 5%
         text-align: center
         margin-bottom: 5%
         h1
@@ -25,16 +31,22 @@
         p
             color: #adbdcc
             font-size: 18px
+            margin-bottom: 32px
     .content-image
-        background-image: url(../images/dist/bg.png)
-        background-position: center center
-        background-repeat: no-repeat
-        background-size: cover
-        min-height: 40vh
-        padding-bottom: 5%
+        // background-image: url(../images/dist/bg.png)
+        // background-position: center center
+        // background-repeat: no-repeat
+        // background-size: cover
+        // min-height: 40vh
+        img
+            max-width: 100%
 .content-info
     margin-top: 10%
     margin-bottom: 10%
+    background-image: url(../images/dist/bg.png)
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: cover
     .title
         text-align: center
         font-size: 32px
@@ -49,7 +61,26 @@
         text-align: center
         padding: 40px 20px
         margin-bottom: 14px
-        min-height: 269px
+        min-height: 315px
+        position: relative
+        transition: box-shadow 1s ease
+        &:hover
+            transition: box-shadow 1s ease
+        &:hover::before
+            content: ''
+            position: absolute
+            left: 0
+            top: 0
+            width: 100%
+            height: 100%
+            box-shadow: 0 0 15px 3px #01E6A8,0 0 4px 2px #01E6A8
+            transition: box-shadow 1s ease
+            z-index: -1
+            animation-name: gradient-shadow
+            animation-timing-function: ease
+            animation-duration: 1s
+            animation-iteration-count: initial
+            border-radius: 5px
         img
             max-width: 80px
             margin-bottom: 14px
@@ -123,10 +154,10 @@
     padding: 20px
 .button-yellow
     border: 1px solid transparent
-    padding: 13px 32px
-    font-size: 15px
+    padding: 13px 50px
+    font-size: 18px
     line-height: 20px
-    background: linear-gradient(128deg,#ffe57e 0%,#feb93fff 50%,#ffe57e 100%)
+    background: linear-gradient(128deg,#ffe57e 0%,#d79115ff 50%,#ffe57e 100%)
     background-size: 200% 100%
     background-position: 0 0
     color: #0d0246
@@ -135,9 +166,17 @@
     transition: .25s ease-in-out
     transition-property: background-position,opacity,color,box-shadow
     border-radius: 10px
-    font-weight: 700
+    font-weight: 600
     box-shadow: 0 10px 20px rgb(255 229 126 / 15%)
     &:hover
         transition: color .25s ease-in-out
         -webkit-tap-highlight-color: transparent
         box-shadow: 0 10px 20px rgb(255 229 126 / 30%)
+
+@keyframes gradient-shadow
+    0%
+        box-shadow: 0 0 15px 1px #01E6A8,0 0 1px 1px #01E6A8
+
+  
+    100%
+        box-shadow: 0 0 15px 3px #01E6A8,0 0 4px 2px #01E6A8
