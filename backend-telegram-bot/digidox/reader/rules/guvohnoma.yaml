@@ -1,0 +1,62 @@
+Reestrdagi tartib raqami:
+  data-direction: left
+  min-distance: 0
+  max-distance: 20
+  exact: False
+  color: 222, 0, 0
+
+Mazkur guvohnoma yuridik shaxs:
+  data-direction: left
+  min-distance: 0
+  max-distance: 20
+  exact: False
+  color: 222, 12, 23
+
+THSh:
+  data-direction: bottom
+  min-distance: 0
+  max-distance: 20
+  exact: True
+  color: 212, 3, 133
+
+MHBOT:
+  data-direction: bottom
+  min-distance: 0
+  max-distance: 20
+  exact: True
+  color: 22, 3, 133
+
+MSh:
+  data-direction: bottom
+  min-distance: 0
+  max-distance: 20
+  exact: True
+  color: 134, 54, 44
+
+KTUT:
+  data-direction: bottom
+  min-distance: 0
+  max-distance: 20
+  exact: True
+  color: 222, 0, 54
+
+XXTUT:
+  data-direction: bottom
+  min-distance: 0
+  max-distance: 20
+  exact: True
+  color: 222, 1, 44
+
+HHTUT:
+  data-direction: bottom
+  min-distance: 0
+  max-distance: 20
+  exact: True
+  color: 222, 1, 44
+
+STIR:
+  data-direction: bottom
+  min-distance: 0
+  max-distance: 20
+  exact: True
+  color: 33, 3, 34
