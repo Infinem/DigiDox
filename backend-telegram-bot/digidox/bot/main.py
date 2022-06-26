@@ -67,7 +67,7 @@ def send_welcome(message):
 def send_menu(message):
     markup = telebot.types.InlineKeyboardMarkup()
     markup.add(
-        telebot.types.InlineKeyboardButton(text="Passport", callback_data="passport")
+        telebot.types.InlineKeyboardButton(text="Pasport", callback_data="passport")
     )
     markup.add(telebot.types.InlineKeyboardButton(text="ID", callback_data="id"))
     markup.add(
@@ -143,35 +143,35 @@ def read_docs(message):
 
         ocr_result = app.ocr_passport(rotated_passport)
         output = ""
-        # try:
-        mrz = app.detect_mrz(image, ocr_result)
-        print(mrz)
-        mrz_items = app.parse_mrz(mrz)
-        all_items = app.process_passport(image, ocr_result, mrz_items)
-        result_dict = {}
-        for k, v in eng_uzb_dict.items():
-            if k in all_items.keys():
-                result_dict[v] = all_items[k]
-                output += f"{v}: {all_items[k]}\n"
-        print(result_dict)
-        PassportInfo.objects.create(
-            first_name=result_dict["ISMI"],
-            last_name=result_dict["FAMILIYASI"],
-            sex=result_dict["JINSI"],
-            pass_number=result_dict["TUG'ILGAN SANASI"],
-            pass_serial=result_dict["PASPORT SERIYASI"],
-            date_of_birth=result_dict["PASPORT RAQAMI"],
-            date_of_issue=result_dict["BERILGAN SANASI"],
-            date_of_expiry=result_dict["AMAL QILISH MUDATTI"],
-            pinfl=result_dict["PINFL"],
-        )
-        bot.send_photo(message.chat.id, open(path, "rb"), output)
-        bot.send_message(message.chat.id, "Topdim! \U0001F929")
-        # except:
-        #     output = (
-        #         "Uzur, aniqlay olmadim... \U0001F612\n\n" + "Rasm sifatini tekshiring."
-        #     )
-        #     bot.send_photo(message.chat.id, open(path, "rb"), output)
+        try:
+            mrz = app.detect_mrz(image, ocr_result)
+            print(mrz)
+            mrz_items = app.parse_mrz(mrz)
+            all_items = app.process_passport(image, ocr_result, mrz_items)
+            result_dict = {}
+            for k, v in eng_uzb_dict.items():
+                if k in all_items.keys():
+                    result_dict[v] = all_items[k]
+                    output += f"{v}: {all_items[k]}\n"
+            print(result_dict)
+            PassportInfo.objects.create(
+                first_name=result_dict["ISMI"],
+                last_name=result_dict["FAMILIYASI"],
+                sex=result_dict["JINSI"],
+                pass_number=result_dict["TUG'ILGAN SANASI"],
+                pass_serial=result_dict["PASPORT SERIYASI"],
+                date_of_birth=result_dict["PASPORT RAQAMI"],
+                date_of_issue=result_dict["BERILGAN SANASI"],
+                date_of_expiry=result_dict["AMAL QILISH MUDATTI"],
+                pinfl=result_dict["PINFL"],
+            )
+            bot.send_photo(message.chat.id, open(path, "rb"), output)
+            bot.send_message(message.chat.id, "Topdim! \U0001F929")
+        except:
+            output = (
+                "Uzur, aniqlay olmadim... \U0001F612\n\n" + "Rasm sifatini tekshiring."
+            )
+            bot.send_photo(message.chat.id, open(path, "rb"), output)
     elif doc_type == "guvohnoma":
         # try:
         rule_based_ocr(path, doc_type)
